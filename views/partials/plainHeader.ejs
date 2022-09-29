@@ -8,6 +8,11 @@
     <title>Document</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .custom-form{
+            width: 50px;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,10 +23,10 @@
                 <span class="ml-3 text-xl">BlogHost</span>
             </a>
             <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-                <a class="mr-5 hover:text-white" href="/note/main">Home</a>
-                <a class="mr-5 hover:text-white" href="/note/yourblog"">Your Blog</a>
-                <a class="mr-5 hover:text-white" href="/note/createpost">Create</a>
-                <a class="mr-5 hover:text-white">Help</a>
+                <a class="m-4 hover:text-white" href="/note/main">Home</a>
+                <a class="m-4 hover:text-white" href="/note/yourblog"">Your Blog</a>
+                <a class="m-4 hover:text-white" href="/note/createpost">Create</a>
+                <a class="m-4 hover:text-white">Help</a>
             </nav>
             <form action="/users/logout" method="get">
                 <button
