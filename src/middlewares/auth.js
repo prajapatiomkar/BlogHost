@@ -13,12 +13,13 @@ const auth = (req, res, next) => {
             let user = jwt.verify(token, SECRECT_KEY);
             req.userId = user.id;
         } else {
-            return res.status(401).json({ message: "Unauthorized User" })
+            res.redirect("/")
         }
         next();
     } catch (error) {
         console.log(error);
-        res.status(401).json({ message: "Unauthorized User" })
+        
+        // res.status(401).json({ message: "Unauthorized User" })
     }
 }
 

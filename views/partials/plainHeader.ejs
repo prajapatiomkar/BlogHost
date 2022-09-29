@@ -18,17 +18,19 @@
                 <span class="ml-3 text-xl">BlogHost</span>
             </a>
             <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-                <a class="mr-5 hover:text-white" href="/">Home</a>
-                <a class="mr-5 hover:text-white" href="/note">My Blog</a>
-                <a class="mr-5 hover:text-white" href="/note">Create Blog</a>
+                <a class="mr-5 hover:text-white" href="/note/main">Home</a>
+                <a class="mr-5 hover:text-white" href="/note/yourblog"">Your Blog</a>
+                <a class="mr-5 hover:text-white" href="/note/createpost">Create</a>
                 <a class="mr-5 hover:text-white">Help</a>
             </nav>
-            <a class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0 mr-2 ml-2"
-                href="/users/signin">Login
-            </a>
-            <a class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0 mr-2 ml-2"
-                href="/users/signup">Register
-            </a>
-
+            <form action="/users/logout" method="get">
+                <button
+                    class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">LogOut
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </form>
         </div>
     </header>

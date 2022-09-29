@@ -59,7 +59,7 @@ const signin = async (req, res) => {
         const token = jwt.sign({ email: existingUser.email, id: existingUser._id }, SECRECT_KEY);
         // console.log(token)
         res.cookie("token",token);
-        res.render("createblog")
+        res.redirect("/note/main")
         // res.status(200).json({ user: existingUser, token: token })
     } catch (error) {
         console.log(error);
@@ -70,4 +70,9 @@ const signin = async (req, res) => {
 const signinpage = (req,res)=>{
     res.render("login")
 }
-module.exports = { signin, signup,signuppage,signinpage };
+const logout = (req,res)=>{
+    res.clearCookie("token");
+    res.redirect("/");
+
+}
+module.exports = { signin, signup,signuppage,signinpage ,logout};

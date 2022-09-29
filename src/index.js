@@ -3,11 +3,13 @@ const app = express();
 const userRouter = require("./routes/userRoutes");
 const noteRoutes = require("./routes/noteRoutes");
 const homeRoutes = require("./routes/homeRoutes");
+
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+app.use(express.static('src/photo'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.set("view engine", "ejs");
@@ -21,7 +23,8 @@ app.use(cookieParser());
 
 app.use("/users", userRouter);
 app.use("/note", noteRoutes);
-app.get("/", homeRoutes);
+app.use("/", homeRoutes);
+// app.use("/main", mainRoutes);
 
 const PORT = process.env.PORT || 5000;
 console.log(process.env.MONGO_URL)

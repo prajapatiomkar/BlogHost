@@ -9,4 +9,6 @@ const getAllNotes = async (req, res) => {
         
     })
 }
-module.exports = { getAllNotes };
+
+
+module.exports = { getAllNotes};

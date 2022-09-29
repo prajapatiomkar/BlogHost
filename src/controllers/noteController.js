@@ -52,10 +52,19 @@ const deleteNote = async (req, res) => {
 const getNotes = async (req, res) => {
     try {
         const notes = await noteModel.find({ userId: req.userId });
-        res.status(201).json(notes);
+        res.render("main",{allBlogItemInMain:notes})
     } catch (error) {
         console.log(error)
         res.status(500).json({ message: "Something went wrong" });
     }
 }
-module.exports = { createNote, updateNote, deleteNote, getNotes,createNotePage };
+const getAllNotes = async (req, res) => {
+    try {
+        const notes = await noteModel.find({ });
+        res.render("main",{allBlogItemInMain:notes})
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ message: "Something went wrong" });
+    }
+}
+module.exports = { createNote, updateNote, deleteNote, getNotes,createNotePage,getAllNotes };

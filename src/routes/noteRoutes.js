@@ -1,9 +1,11 @@
 const express = require("express");
 const noteRouter = express.Router()
 const auth = require("../middlewares/auth")
-const { createNote, updateNote, deleteNote, getNotes,createNotePage } = require("../controllers/noteController");
+const { createNote, updateNote, deleteNote, getNotes,getAllNotes,createNotePage } = require("../controllers/noteController");
 
-noteRouter.get("/", auth, getNotes);
+noteRouter.get("/yourblog", auth, getNotes);
+
+noteRouter.get("/main", auth, getAllNotes);
 
 noteRouter.get("/createpost",createNotePage);
 
