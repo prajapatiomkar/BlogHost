@@ -1,0 +1,2 @@
+npm i express jsonwebtoken nodemon bcrypt dotenv mongoose cors
+npm i --save cookie-parser
