@@ -8,6 +8,10 @@ const NoteSchema = mongoose.Schema({
         type: String,
         require: true
     },
+    imageLink:{
+        type:String,
+        require:false
+    },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",

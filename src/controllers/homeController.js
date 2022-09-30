@@ -6,9 +6,24 @@ const getAllNotes = async (req, res) => {
         if(foundItem){
             res.render("home",{allBlogItem:foundItem})
         }
+        if(req.cookies.token){
+            res.render("/users/main")
+        }
         
     })
 }
 
+const singleBlogHome = (req,res)=>{
+    const requestedNo = req.params.postno;
+    // const sBlog =noteModel
+    noteModel.findById(requestedNo, function (err, resultItem) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.render("singlebloghome", ({ singleblogHome: resultItem }))
+        }
 
-module.exports = { getAllNotes};
+    });
+}
+module.exports = { getAllNotes,singleBlogHome};

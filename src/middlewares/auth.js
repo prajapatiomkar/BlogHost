@@ -7,7 +7,6 @@ const auth = (req, res, next) => {
     try {
         
         let token = req.cookies.token;
-        console.log(token)
         if (token) {
             
             let user = jwt.verify(token, SECRECT_KEY);
