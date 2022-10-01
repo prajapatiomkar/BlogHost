@@ -1,24 +1,3 @@
-# Notebook-CRUD-API
-
-```
-POST http://localhost:5000/note/
-```
-```
-GET http://localhost:5000/note/
-```
-```
-POST http://localhost:5000/users/signup
-```
-```
-POST http://localhost:5000/users/signin
-```
-```
-PUT http://localhost:5000/note/:id
-```
-```
-DELETE http://localhost:5000/note/:id
-```
-
-
-
-
+# BlogHost 
+Is a blogging website for hosting your blog on internet and easily accessible.
+## Here is a [link](http://bloghost-site.herokuapp.com/note/createpost) check-it-out
