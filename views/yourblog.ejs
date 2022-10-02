@@ -19,7 +19,7 @@
                         src="<%=item.imageLink%>">
                 </div>
                 <h2 class="text-xl font-medium title-font text-white mt-5"><%=item.title%></h2>
-                <p class="text-base leading-relaxed mt-2"><%=item.description.substring(0,100)%></p>
+                <p class="text-base leading-relaxed mt-2"><%-item.description.substring(0,100)%></p>
                 <div class="flex justify-between ">
                     <a class="text-indigo-400 inline-flex items-center mt-3" href="/note/yourblog/<%=item._id%>">Edit
                         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"

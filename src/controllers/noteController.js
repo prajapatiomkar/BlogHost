@@ -84,6 +84,7 @@ const singleBlogMain = (req,res)=>{
             console.log(err);
         }
         else {
+            res.setHeader("Content-Type", "text/html")
             res.render("singleblogmain", ({ singleBlogMain: resultItem }))
         }
 

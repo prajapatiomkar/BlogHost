@@ -29,5 +29,25 @@
     </span>
   </div>
 </footer>
+<script>
+  $('#summernote').summernote({
+    placeholder: 'Description',
+    tabsize: 2,
+    height: 250,
+    
+  });
+  
+  function isChecked() {
+    if (document.getElementById("default-toggle").checked) {
+      document.getElementById("default-toggle").value = "true";
+    }
+    else {
+      document.getElementById("default-toggle").value = "false";
+    }
+  }
+</script>
+<script>
+  const editor = Jodit.make('#editor');
+</script>
 </body>
 </html>

@@ -6,7 +6,7 @@
       <div class="container px-5 pb-24 pt-4 mx-auto flex flex-wrap items-center">
 
         <div
-          class="lg:w-2/6 md:w-1/2 bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col md:m-auto w-full mt-10 md:mt-0">
+          class="lg:w-full md:w-1/2 bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col md:m-auto w-full mt-10 md:mt-0">
           <div class="flex justify-between ">
             <h2 class="text-white text-lg font-medium title-font mb-5">Update Blog</h2>
             <a class="text-indigo-400" href="/note/delete/<%=updateYourSingleBlog._id%>">
@@ -25,8 +25,9 @@
           </div>
           <div class="relative mb-4">
             <label for="email" class="leading-7 text-sm text-gray-400">Description</label>
-            <textarea type="text" id="email" name="description"
-              class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"><%=updateYourSingleBlog.description%></textarea>
+            <!-- <textarea type="text" id="email" name="description"
+              class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"><%=updateYourSingleBlog.description%></textarea> -->
+              <textarea id="editor" name="description" required><%=updateYourSingleBlog.description%></textarea>
           </div>
           <div class="relative mb-4">
             <label for="email" class="leading-7 text-sm text-gray-400">Image Link</label>
@@ -47,4 +48,4 @@
       </div>
     </section>
   </form>
-  <%- include('partials/footer') %>
+  <%- include('partials/plainFooter') %>
