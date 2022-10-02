@@ -49,10 +49,10 @@ const deleteNote = async (req, res) => {
     try {
         const note = await noteModel.findByIdAndRemove(id);
         // res.status(202).json(note);
-        res.redirect("/note/main")
+        res.redirect("/note/yourblog")
     } catch (error) {
         await noteModel.findByIdAndUpdate(id, newNote, { new: true });
-        res.redirect("/note/main")
+        res.redirect("/note/yourblog")
         
     }
 
