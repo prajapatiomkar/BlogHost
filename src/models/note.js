@@ -17,6 +17,11 @@ const NoteSchema = mongoose.Schema({
         ref: "User",
         require: true
     },
+    isPublic: {
+        type: String,
+        require: false,
+        default:false
+    },
 
 }, { timestamps: true });
 

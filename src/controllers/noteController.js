@@ -1,12 +1,13 @@
 const noteModel = require("../models/note");
 
 const createNote = async (req, res) => {
-    const { title, description,imageLink } = req.body;
+    const { title, description,imageLink,isPublic } = req.body;
     const newNote = new noteModel({
         title: title,
         description: description,
         userId: req.userId,
-        imageLink:imageLink
+        imageLink:imageLink,
+        isPublic:isPublic
     });
     try {
         await newNote.save();
@@ -25,12 +26,13 @@ const createNotePage = (req,res)=>{
 const updateNote = async (req, res) => {
     const id = req.params.id;
     console.log(id)
-    const { title, description,imageLink } = req.body;
+    const { title, description,imageLink,isPublic } = req.body;
     const newNote = {
         title: title,
         description: description,
         imageLink:imageLink,
-        userId:req.userId
+        userId:req.userId,
+        isPublic:isPublic
     };
 
     try {
@@ -66,7 +68,7 @@ const getNotes = async (req, res) => {
 }
 const getAllNotes = async (req, res) => {
     try {
-        const notes = await noteModel.find({ });
+        const notes = await noteModel.find({isPublic:"true"});
         res.render("main",{allBlogItemInMain:notes})
     } catch (error) {
         console.log(error)
