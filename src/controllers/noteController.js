@@ -10,7 +10,7 @@ const createNote = async (req, res) => {
     });
     try {
         await newNote.save();
-        res.render("createblog")
+        res.redirect("/note/yourblog")
         // res.status(201).json(newNote);
         // res.render("home",{allBlogItem:[{title:"fddfd",description:"sdasds"}]})
     } catch (error) {
@@ -45,11 +45,13 @@ const deleteNote = async (req, res) => {
     const id = req.params.id;
 
     try {
-        const note = await noteModel.findOneAndDelete(id);
-        res.status(202).json(note);
+        const note = await noteModel.findByIdAndRemove(id);
+        // res.status(202).json(note);
+        res.redirect("/note/main")
     } catch (error) {
         await noteModel.findByIdAndUpdate(id, newNote, { new: true });
-        res.status(200).json(newNote);
+        res.redirect("/note/main")
+        
     }
 
 }
