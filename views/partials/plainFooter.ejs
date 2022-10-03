@@ -37,12 +37,20 @@
     
   });
   
-  function isChecked() {
-    if (document.getElementById("default-toggle").checked) {
-      document.getElementById("default-toggle").value = "true";
+  function isCheckedUpdate() {
+    if (document.getElementById("default-toggleU").checked) {
+      document.getElementById("default-toggleU").value = "true";
     }
     else {
-      document.getElementById("default-toggle").value = "false";
+      document.getElementById("default-toggleU").value = "false";
+    }
+  }
+  function isCheckedCreate() {
+    if (document.getElementById("default-toggleC").checked) {
+      document.getElementById("default-toggleC").value = "true";
+    }
+    else {
+      document.getElementById("default-toggleC").value = "false";
     }
   }
 </script>

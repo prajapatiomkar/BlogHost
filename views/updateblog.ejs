@@ -27,20 +27,38 @@
             <label for="email" class="leading-7 text-sm text-gray-400">Description</label>
             <!-- <textarea type="text" id="email" name="description"
               class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"><%=updateYourSingleBlog.description%></textarea> -->
-              <textarea id="editor" name="description" required><%=updateYourSingleBlog.description%></textarea>
+            <textarea id="editor" name="description" required><%=updateYourSingleBlog.description%></textarea>
           </div>
           <div class="relative mb-4">
             <label for="email" class="leading-7 text-sm text-gray-400">Image Link</label>
             <input type="text" id="email" value="<%=updateYourSingleBlog.imageLink%>" name="imageLink"
               class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
           </div>
+
+
           <div class="">
-            <label for="default-toggle" class="inline-flex relative items-center cursor-pointer ">
-              <input type="checkbox" value="true" id="default-toggle" name="isPublic" class="sr-only peer" onclick="isChecked()" checked>
+            <div class="flex items-center mb-4">
+              <input id="default-radio-1" type="radio" value="true" name="isPublic"
+                class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600">
+              <label for="default-radio-1"
+                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Public</label>
+            </div>
+            <div class="flex items-center">
+              <input checked="" id="default-radio-2" type="radio" value="false" name="isPublic"
+                class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600">
+              <label for="default-radio-2"
+                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Private</label>
+            </div>
+          </div>
+
+
+          <!-- <div class="">
+            <label for="default-toggleU" class="inline-flex relative items-center cursor-pointer ">
+              <input type="checkbox" value="true" id="default-toggleU" name="isPublic" class="sr-only peer" onclick="isCheckedUpdate()" checked>
               <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none  dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
               <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Public</span>
             </label>
-          </div>
+          </div> -->
           <br>
           <button
             class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Save</button>
