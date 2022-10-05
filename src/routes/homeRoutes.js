@@ -5,6 +5,6 @@ const {getAllNotes,singleBlogHome} = require("../controllers/homeController")
 
 homeRouter.get("/",getAllNotes);
 homeRouter.get("/main",getAllNotes);
-homeRouter.get("/:postno",singleBlogHome);
+homeRouter.get("/home/:postno",singleBlogHome);
 
 module.exports = homeRouter;

@@ -3,6 +3,7 @@ const app = express();
 const userRouter = require("./routes/userRoutes");
 const noteRoutes = require("./routes/noteRoutes");
 const homeRoutes = require("./routes/homeRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
@@ -21,9 +22,10 @@ app.use(cookieParser());
 //     next();
 // })
 
+app.use("/", homeRoutes);
+app.use("/admin", adminRoutes);
 app.use("/users", userRouter);
 app.use("/note", noteRoutes);
-app.use("/", homeRoutes);
 // app.use("/main", mainRoutes);
 
 const PORT = process.env.PORT || 5000;

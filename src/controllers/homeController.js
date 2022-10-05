@@ -26,4 +26,6 @@ const singleBlogHome = (req,res)=>{
 
     });
 }
+
+
 module.exports = { getAllNotes,singleBlogHome};

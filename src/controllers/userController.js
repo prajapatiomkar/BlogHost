@@ -7,7 +7,7 @@ dotenv.config();
 const SECRECT_KEY = process.env.SECRECT_KEY;
 
 // SignUp === Register 
-const signup = async (req, res) => {
+const register = async (req, res) => {
     /*
        Existing User Check
        Hashed Password
@@ -39,11 +39,11 @@ const signup = async (req, res) => {
         res.status(500).json({ message: "Something went wrong" });
     }
 }
-const signuppage = (req,res)=>{
+const registerPage = (req,res)=>{
     res.render("register")
 }
 // SignIn === Login 
-const signin = async (req, res) => {
+const login = async (req, res) => {
     const { email, password } = req.body;
 
     try {
@@ -67,7 +67,7 @@ const signin = async (req, res) => {
     }
 }
 
-const signinpage = (req,res)=>{
+const loginPage = (req,res)=>{
     res.render("login")
 }
 const logout = (req,res)=>{
@@ -75,4 +75,4 @@ const logout = (req,res)=>{
     res.redirect("/");
 
 }
-module.exports = { signin, signup,signuppage,signinpage ,logout};
+module.exports = { login, register,registerPage,loginPage ,logout};
