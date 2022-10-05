@@ -64,6 +64,8 @@ const adminRegister = async (req, res) => {
             console.log(error);
             res.status(500).json({ message: "Something went wrong" });
         }
+    }else{
+        res.redirect("/admin/register")
     }
 
    
