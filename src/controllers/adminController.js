@@ -1,16 +1,72 @@
-const noteModel = require("../models/admin");
+const adminModel = require("../models/admin");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
 
-const adminLoginPage = (req,res)=>{
+dotenv.config();
+const SECRECT_KEY = process.env.SECRECT_KEY;
+const ADMINISTRATOR_PASSWORD = process.env.ADMINISTRATOR_PASSWORD;
+
+const adminLoginPage = (req, res) => {
     res.render("adminLogin");
 }
-const adminRegisterPage = (req,res)=>{
+const adminRegisterPage = (req, res) => {
     res.render("adminRegister");
 }
-const adminLogin = (req,res)=>{
-    res.send("login")
+const adminLogin = async (req, res) => {
+
+    const { email, password } = req.body;
+
+    try {
+        const existingUser = await adminModel.findOne({ email: email });
+        if (!existingUser) {
+            return res.status(409).json({ message: "Administrator not found" }) //400-bad request
+        }
+
+        const matchPassword = await bcrypt.compare(password, existingUser.password) //(normalPassword,hashpassword)
+        if (!matchPassword) {
+            return res.status(400).json({ message: "Invalid  Credentials" });
+        }
+        const token = jwt.sign({ email: existingUser.email, id: existingUser._id }, SECRECT_KEY);
+        // console.log(token)
+        res.cookie("token", token);
+        // res.redirect("/note/main")
+        res.send("Admin Login")
+        // res.status(200).json({ user: existingUser, token: token })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Something went wrong" });
+    }
 }
-const adminRegister = (req,res)=>{
-    res.send("register")
+const adminRegister = async (req, res) => {
+    const { username, email, password, administratorpassword } = req.body;
+
+    if(administratorpassword === ADMINISTRATOR_PASSWORD){
+        try {
+            const existingUser = await adminModel.findOne({ email: email });
+            if (existingUser) {
+                return res.status(409).json({ message: "Administrator already exists" }) //400-bad request
+            }
+            const hashedPassword = await bcrypt.hash(password, 10);
+    
+            const result = await adminModel.create({
+                email: email,
+                password: hashedPassword,
+                username: username,
+            });
+    
+            const token = jwt.sign({ email: result.email, id: result._id }, SECRECT_KEY);
+            res.cookie("token", token);
+            // console.log(token)
+            // res.status(201).json({ user: result, token: token }) //201-successfully record created
+            res.send("Admin Register")
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ message: "Something went wrong" });
+        }
+    }
+
+   
 }
 
-module.exports = { adminLoginPage,adminRegisterPage,adminLogin,adminRegister};
+module.exports = { adminLoginPage, adminRegisterPage, adminLogin, adminRegister };

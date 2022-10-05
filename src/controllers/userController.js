@@ -30,7 +30,7 @@ const register = async (req, res) => {
         });
 
         const token = jwt.sign({ email: result.email, id: result._id }, SECRECT_KEY);
-        res.cookie("token",token);
+        res.cookie("token", token);
         // console.log(token)
         // res.status(201).json({ user: result, token: token }) //201-successfully record created
         res.render("login")
@@ -39,7 +39,7 @@ const register = async (req, res) => {
         res.status(500).json({ message: "Something went wrong" });
     }
 }
-const registerPage = (req,res)=>{
+const registerPage = (req, res) => {
     res.render("register")
 }
 // SignIn === Login 
@@ -58,7 +58,7 @@ const login = async (req, res) => {
         }
         const token = jwt.sign({ email: existingUser.email, id: existingUser._id }, SECRECT_KEY);
         // console.log(token)
-        res.cookie("token",token);
+        res.cookie("token", token);
         res.redirect("/note/main")
         // res.status(200).json({ user: existingUser, token: token })
     } catch (error) {
@@ -67,12 +67,12 @@ const login = async (req, res) => {
     }
 }
 
-const loginPage = (req,res)=>{
+const loginPage = (req, res) => {
     res.render("login")
 }
-const logout = (req,res)=>{
+const logout = (req, res) => {
     res.clearCookie("token");
     res.redirect("/");
 
 }
-module.exports = { login, register,registerPage,loginPage ,logout};
+module.exports = { login, register, registerPage, loginPage, logout };
