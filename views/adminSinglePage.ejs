@@ -4,6 +4,7 @@
     <section class="text-gray-400 bg-gray-900 body-font">
 
         <div class="container mx-auto flex flex-col justify-center items-center">
+            
             <a class="text-white bg-red-600 border-0 py-2 px-8 focus:outline-none hover:bg-red-400 rounded text-lg" href="/admin/posts/delete/<%=singleBlogMain._id%>">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
@@ -22,7 +23,11 @@
                 <p class="mb-8 leading-relaxed custom-font-setting" id="sample-text"></p>
                 <%- singleBlogMain.description %>
             </div>
+            <div class="">
+                <a href="/admin/posts/detail/<%=singleBlogMain.userId%>" class="text-white bg-green-600 border-0 py-2 px-8 focus:outline-none hover:bg-green-500 rounded text-lg">User Detail</a>
+            </div>
         </div>
+        
     </section>
 
     <script>

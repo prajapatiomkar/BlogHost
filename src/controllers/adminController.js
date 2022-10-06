@@ -1,5 +1,6 @@
 const adminModel = require("../models/admin");
 const noteModel = require("../models/note");
+const userModel = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
@@ -108,9 +109,23 @@ const deleteSingleBlog = async (req, res) => {
     } catch (error) {
         await noteModel.findByIdAndUpdate(id, newNote, { new: true });
         res.redirect("/admin/posts")
-        
+
     }
 
 }
 
-module.exports = { adminLoginPage, adminRegisterPage, adminLogin, adminRegister, getAllUserBlog, getSingleBlog,deleteSingleBlog };
+const detailSingleBlogUser = async (req, res)=>{
+    const requestedNo = req.params.id;
+    // const sBlog =noteModel
+    userModel.findById(requestedNo, function (err, resultItem) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.setHeader("Content-Type", "text/html")
+            res.render("adminSideUserDetail", ({ userDetail: resultItem }))
+        }
+
+    });
+}
+module.exports = { adminLoginPage, adminRegisterPage, adminLogin, adminRegister, getAllUserBlog, getSingleBlog, deleteSingleBlog, detailSingleBlogUser };
